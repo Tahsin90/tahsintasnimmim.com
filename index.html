@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #007bff, #00c6ff);
+            color: white;
+            text-align: center;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+        header {
+            padding: 40px 20px;
+            background: rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            animation: fadeInDown 1s ease-out;
+        }
+        p {
+            font-size: 1.2rem;
+        }
+
+        /* Dark Mode */
+        .dark-mode {
+            background: #1a1a1a;
+            color: #f1f1f1;
+        }
+        .dark-mode header {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .dark-mode .project {
+            background: #222;
+            color: white;
+        }
+        .dark-mode .project a {
+            background: #ffcc00;
+            color: black;
+        }
+
+        /* Dark Mode Toggle */
+        .theme-toggle {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            padding: 10px;
+            background: white;
+            color: black;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+        .dark-mode .theme-toggle {
+            background: black;
+            color: white;
+        }
+
+        /* Project Section */
+        #projects {
+            margin: 50px auto;
+            width: 80%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            justify-content: center;
+        }
+        .project {
+            background: white;
+            color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+        .project:nth-child(2) { animation-delay: 0.3s; }
+        .project:nth-child(3) { animation-delay: 0.6s; }
+
+        .project:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        .project h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        .project p {
+            font-size: 1rem;
+            color: #555;
+        }
+        .project a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        .project a:hover {
+            background: #0056b3;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to My Portfolio</h1>
+        <p>Showcasing my A/B Testing & Web Analytics Projects</p>
+        <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    </header>
+
+    <section id="projects">
+        <div class="project">
+            <h3>A/B Testing Simulator</h3>
+            <p>A web-based app to test different variations using statistical methods.</p>
+            <a href="https://github.com/yourusername/ab-testing-simulator" target="_blank">View on GitHub</a>
+        </div>
+
+        <div class="project">
+            <h3>Web Tracking Dashboard</h3>
+            <p>A dynamic dashboard to monitor user activity & engagement metrics.</p>
+            <a href="https://github.com/yourusername/web-tracking-dashboard" target="_blank">View on GitHub</a>
+        </div>
+
+        <div class="project">
+            <h3>Data Analytics Report</h3>
+            <p>Analyzed user behavior using Python & R, with insights on optimization.</p>
+            <a href="https://github.com/yourusername/data-analytics-report" target="_blank">View on GitHub</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Tahsin Tasnim Mim </p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            let button = document.querySelector('.theme-toggle');
+            if (document.body.classList.contains('dark-mode')) {
+                button.textContent = "☀️";
+            } else {
+                button.textContent = "🌙";
+            }
+        }
+    </script>
+
+</body>
+</html>
